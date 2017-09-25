@@ -21,7 +21,6 @@
 
 </style>
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <div id="showinterestmodal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

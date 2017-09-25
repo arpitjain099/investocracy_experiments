@@ -1,15 +1,16 @@
-<?php 
-header('Access-Control-Allow-Origin: *');
+<?php
 
 require 'vendor/autoload.php';
 
 use Mailgun\Mailgun;
-$con=mysqli_connect("localhost","rbansal","rbansal","rashmibansal");
-if (mysqli_connect_errno($con))
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    echo "<br />";
-  }
+$link = mysqli_connect("localhost", "root", "12345678", "investocracy");
+
+if (!$link) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
 
   $name=$_POST["name"];
   $entity=$_POST['entity'];
@@ -38,20 +39,21 @@ if (mysqli_connect_errno($con))
     $currentorganization= "Not Available";
   if($designation=="")
     $designation= "Not Available";
-$result = mysqli_query($con,"SELECT * FROM `users_fmv` WHERE email = '$email'");
+$result = mysqli_query($link,"SELECT * FROM `users_fmv` WHERE email = '$email'");
 //var_dump($result);
    if($result->num_rows > 0){
-      echo "user already exists";return;
+      echo "user already exists";
+      return;
    }
 
 else{
-$result2 = mysqli_query($con,"INSERT INTO `users_fmv` VALUES('$name','$password','$entity','$email','$linkedin','$phone','$headline','$location','$preferences','$pastinvestments','$industry_preferences','$countryofresidence','$currentorganization','$designation','pending','$investor_type','$twitter','$typicalinvestmentamount','$portofolio','$image_url');");
+$result2 = mysqli_query($link,"INSERT INTO `users_fmv` VALUES('$name','$password','$entity','$email','$linkedin','$phone','$headline','$location','$preferences','$pastinvestments','$industry_preferences','$countryofresidence','$currentorganization','$designation','pending','$investor_type','$twitter','$typicalinvestmentamount','$portofolio','$image_url');");
 if($result2){
-echo "ok";
+echo "200";
 //return;
 }
 else {
-echo "not ok";
+echo "404";
 //return;
 }
 }

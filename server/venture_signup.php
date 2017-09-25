@@ -1,13 +1,7 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
 
-$con=mysqli_connect("localhost","rbansal","rbansal","rashmibansal");
-if (mysqli_connect_errno($con))
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    echo "<br />";
-  }
-
+include('config.php');
   
   $companyname=$_POST["companyname"];
   $companylocation=$_POST['companylocation'];
@@ -65,10 +59,6 @@ if (mysqli_connect_errno($con))
   $previousfundingsource=$_POST['previousfundingsource'];
   $previousfundingamount=$_POST['previousfundingamount'];
   $previousfundingdate=$_POST['previousfundingdate'];
-
-
-
-
  
 $result = mysqli_query($con,"SELECT * FROM `venture_fmv` WHERE companyemail = '$companyemail'");
 //var_dump($result);

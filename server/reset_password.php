@@ -3,19 +3,14 @@ header('Access-Control-Allow-Origin: *');
 require 'vendor/autoload.php';
 
 use Mailgun\Mailgun;
-$con=mysqli_connect("localhost","rbansal","rbansal","rashmibansal");
-if (mysqli_connect_errno($con))
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    echo "<br />";
-  }
+include('config.php');
 
 
   $email=$_POST["email"];
 //$newpassword=md5(time().$email);
 
 //$sql = "UPDATE `users_fmv` SET password='$newpassword' WHERE email='$email'";
-$result = mysqli_query($con,"SELECT * FROM `users_fmv` WHERE email = '$email'");
+$result = mysqli_query($link,"SELECT * FROM `users_fmv` WHERE email = '$email'");
    if($result->num_rows > 0){
       while($row = $result->fetch_assoc()) {
         

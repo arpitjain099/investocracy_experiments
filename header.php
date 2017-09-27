@@ -47,87 +47,69 @@ div.polaroid {
 </head>
 
  <script type="text/javascript">
-
-function go_to_companies_page()
-{
-window.location = 'companies.php'; // Members Area
-}
-function logout(){
-localStorage.setItem("username",null);
-localStorage.setItem("usertype",null);
-localStorage.setItem("timeout",0);window.location.href="index.php";
+function go_to_companies_page() {
+  window.location = 'companies'; // Members Area
 }
 
-              function login(){
-      if(document.getElementById("email").value=="")
+function logout() {
+  localStorage.setItem("username", null);
+  localStorage.setItem("usertype", null);
+  localStorage.setItem("timeout", 0);
+  window.location.href = "index";
+}
+
+function login() {
+  if (document.getElementById("email").value == "")
     alert("Username field is empty. Please enter the e-mail address you used to signup with FundMyVenture.");
-  else if(document.getElementById("password").value=="")
+  else if (document.getElementById("password").value == "")
     alert("Password field cannot be left empty.");
 
-$.post('server/checkcredentials.php', { 
-  email: document.getElementById("email").value,
-  password:document.getElementById("password").value//document.getElementById("password").value
-}) 
-.done(function( data ) {
+  $.post('server/checkcredentials.php', {
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value //document.getElementById("password").value
+    })
+    .done(function(data) {
+      if (data == '404') // ERROR?
+      {
+        document.getElementById('status').innerHTML = "<center>Login credentials not found. Please try again.</center>";
+        document.getElementById("status").style.color = 'red';
+      } 
+      else {
+        document.getElementById('status').innerHTML = "<center>Login successful. Redirecting you to companies page.</center> ";
+        document.getElementById("status").style.color = 'green';
+        localStorage.setItem("username", data);
+        localStorage.setItem("usertype", "investor");
+        localStorage.setItem("timeout", Date.now() / 1000 + 1440);
+        setTimeout('go_to_companies_page()', 3000);
+      }
+    });
+}
 
-    if(data == "investor") 
- {   
-  document.getElementById('status').innerHTML="<center>Login successful.</center> ";document.getElementById("status").style.color = 'green';  
-localStorage.setItem("username",document.getElementById("email").value );
-localStorage.setItem("usertype","investor");
-localStorage.setItem("timeout",Date.now() / 1000 + 1440);
-setTimeout('go_to_companies_page()', 3000); 
- }
-  else if(data == "startup") 
- {   
-  document.getElementById('status').innerHTML="<center>Login successful.</center> ";document.getElementById("status").style.color = 'green';  
-localStorage.setItem("username",document.getElementById("email").value );
-localStorage.setItem("usertype","startup");
-localStorage.setItem("timeout",Date.now() / 1000 + 1440);
-
-setTimeout('go_to_companies_page()', 3000); 
- }
- else if (data=='failed')// ERROR?
- {  
-  document.getElementById('status').innerHTML="<center>Login credentials not found. Please try again.</center>";
-  document.getElementById("status").style.color = 'red';
- }
- else  {
-      document.getElementById('status').innerHTML="<center>Server under heavy load. Please try again.</center>";  
-      document.getElementById("status").style.color = 'red';
-   }
- 
- });
- }
-function resetpassword(){
-            
-if(document.getElementById("reset_email").value=="")
+function resetpassword() {
+  if (document.getElementById("reset_email").value == "")
     alert("Username field is empty. Please enter e-mail address.");
 
+  $.post('http://fundmyventure.co/server/reset_password.php', {
+      email: document.getElementById("reset_email").value
+    })
+    .done(function(data) {
+      console.log(data);
+      if (data == "ok") {
+        document.getElementById('forgotpasswordstatus').innerHTML = "<center>Your recovered password has been sent to your mail address, if it was found in our system. <br>Please check your spam folders if you don't receive the link in the next 5 minutes.</center>";
+        document.getElementById("forgotpasswordstatus").style.color = 'green';
+      } else {
+        document.getElementById('forgotpasswordstatus').innerHTML = "<center>Server under heavy load. Please try again.</center>";
+        document.getElementById("forgotpasswordstatus").style.color = 'red';
+      }
 
-$.post('http://fundmyventure.co/server/reset_password.php', { 
-  email: document.getElementById("reset_email").value
-}) 
-.done(function( data ) {
-  console.log(data);
-if(data=="ok"){
-  document.getElementById('forgotpasswordstatus').innerHTML="<center>Your recovered password has been sent to your mail address, if it was found in our system. <br>Please check your spam folders if you don't receive the link in the next 5 minutes.</center>";
-  document.getElementById("forgotpasswordstatus").style.color = 'green';
+    });
 }
- else{
-  document.getElementById('forgotpasswordstatus').innerHTML="<center>Server under heavy load. Please try again.</center>";  
-      document.getElementById("forgotpasswordstatus").style.color = 'red';
- }
- 
- });
- }
  </script>
 
 
   <div class="modal fade" id="loginmodal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">x</button>
@@ -135,8 +117,7 @@ if(data=="ok"){
           <center><h4 class="modal-title">Login/Signup</h4></center>
         </div>
         <div class="modal-body">
-          
-              <label for="email">E-Mail</label>
+                      <label for="email">E-Mail</label>
               <p><input type="text" name="eid" id="email" placeholder="Enter the mail address you used to register. " autocomplete="off"></p>
               <label for="password">Password</label>
               <p><input type="password"  id="password" name="password" placeholder="Password" autocomplete="off"></p>
@@ -145,22 +126,19 @@ if(data=="ok"){
                 <p>
                 <a data-toggle="modal" href="#forgotpassword">Forgot Password?</a>
               </p>
-            
-        </div>
+                  </div>
         <div class="modal-footer">
           New To FundMyVenture?
             <a data-toggle="modal" href="#usersignupmodal" class="btn btn-default">Register</a>
         </div>
       </div>
-      
-    </div>
+        </div>
   </div>
 
 
 <div class="modal fade" id="usersignupmodal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">x</button>
@@ -178,9 +156,8 @@ if(data=="ok"){
 
             <center>
             <div class="col-md-6 ">
-              <a href="investor_signup.php">
-              
-
+              <a href="investor_signup">
+            
                 <center>
                 <h4 class="m-b-16">
                   Investor
@@ -191,16 +168,12 @@ if(data=="ok"){
               Includes Angels, VC's, Incubators and Accelerators 
                 </p>
 
-              
-
-             
-            </a></div>
+            
+                       </a></div>
           <div class="col-md-1"></div>
-  
             <div class="col-md-6  ">
-              <a href="venture_signup.php">
-             
-                <center>
+              <a href="venture_signup">
+                           <center>
                 <h4 class="m-b-16">
                   Startup
                 </h4>
@@ -210,47 +183,35 @@ if(data=="ok"){
                   potential investors
                 </p>
 
-                  
-             
-            </a></div></center>
-          
-          </div>
+                                       </a></div></center>
+                  </div>
         </form>
 
-       
-
+     
         <div class="disclaimer">
           <small>
 
               By creating your account, you agree to our 
-              
-              <a href="/about/tos/">
+                          <a href="/about/tos/">
                 Terms
               </a>,
-              
-              <a href="/about/privacy/">
+                          <a href="/about/privacy/">
                 Privacy
               </a>
-              
-              &amp;
-              
-              <a href="/about/nda/">Data NDA</a>
-              
-          </small>
+                          &amp;
+                          <a href="/about/nda/">Data NDA</a>
+                      </small>
         </div>
 
       </div>
 
-        
-      </div>
-      
-    </div>
+            </div>
+        </div>
   </div>
 
  <div class="modal fade" id="forgotpassword" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">x</button>
@@ -258,27 +219,20 @@ if(data=="ok"){
           <center><h4 class="modal-title">Recover your account password</h4></center>
         </div>
         <div class="modal-body">
-          
-              <label for="email">E-mail</label>
+                      <label for="email">E-mail</label>
               <p><input type="text" name="eid" id="reset_email" placeholder="Enter the mail address you used to register. " autocomplete="off"></p>
-             
-              <div id="forgotpasswordstatus"></div>
+                         <div id="forgotpasswordstatus"></div>
               <button id="loginsubmit" class="btn btn-primary" onclick="resetpassword()">Send reset password link</button><br>
-               
-            
+                               </div>
         </div>
-    
-      </div>
-      
-    </div>
+        </div>
   </div>
 
 
 
   <div class="modal fade" id="windowloadmodal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -294,23 +248,20 @@ if(data=="ok"){
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
-    </div>
+        </div>
   </div>
 </div>
-    
-
+  
   <div class="modal fade" id="createacampaign" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <center><h4 class="modal-title">Investors, you can start a fundraise for your business dream too!</h4></center>
         </div>
         <div class="modal-body">
-          Have a startup of your own? <a href="venture_signup.php">Signup</a> for free to begin fundraise for your company.<br><br>
+          Have a startup of your own? <a href="venture_signup">Signup</a> for free to begin fundraise for your company.<br><br>
 
           FundMyVenture's vision is to enable people realize their dreams with the support of people around them. Start a campaign, if you feel that you have a business idea which has the potential to be raised by local community around you. The advantages with such campaigns include 
             <ul>
@@ -318,8 +269,7 @@ if(data=="ok"){
                 <li>You can connect with people around you who believe in your idea. Even if they don't invest money in your endeavour, they become strong advocates of your cause, thereby maximizing your reach.</li>
                 <li>Community support also helps tackle minor obstacles like getting local clearances and other smaller expenses.</li>
                 <li>Capture the true 'worth' of your idea by directly reaching out to people for whom the service/product is intended.</li>
-                
-            </ul>
+                          </ul>
 
             Campaigns are different from startup fundraise as campaigns are focused on connecting businesses which are currently in idea stage, and require necessary local funds and support.  FundMyVenture is different from platforms like <a href="http://kickstarter.com" target="_blank">Kickstarter</a> as we focus on solid business ideas where investors can contribute effort, mentorship as well as financial assistance to help you set up the business.<br><br>Some example campaigns include<br>
             <img class="col-md-2" width="10%"src="assets/images/doctor.png"/></div> Praveen is a MBBS, MS opthalmology from AIIMS, New Delhi. He wants to set up a specialty eye hospital on the outskirts of his hometown Agra along with two of his medico friends. The total cost involved (along with the machines) is about INR 2 crore. He also seeks support from influential people in Agra so that he can focus on running the hospital. Praveen comes to FundMyVenture and creates his campaign giving expense breakup, projected cash flow cycles, time for the investment to pay off, and profit margins. People around Agra who understand the value behind Praveen's venture invest both time and money to help set up the hospital. <br><br>
@@ -331,14 +281,12 @@ if(data=="ok"){
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
-    </div>
+        </div>
   </div>
 
   <div class="modal fade" id="joinus" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -363,14 +311,12 @@ if(data=="ok"){
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
-    </div>
+        </div>
   </div>
 
   <div class="modal fade" id="announcement" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
+        <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -383,8 +329,7 @@ if(data=="ok"){
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
-    </div>
+        </div>
   </div>
 <body>
 
@@ -394,8 +339,8 @@ if(data=="ok"){
             <div class="mbr-navbar__container">
                 <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
                     <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
-                        <span class="mbr-brand__logo"><a href="index.php"><img class="mbr-navbar__brand-img mbr-brand__img" src="assets/images/fmv.png" alt="FundMyVenture"></a></span>
-                        <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="index.php">FundMyVenture</a></span>
+                        <span class="mbr-brand__logo"><a href="index"><img class="mbr-navbar__brand-img mbr-brand__img" src="assets/images/fmv.png" alt="FundMyVenture"></a></span>
+                        <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="index">FundMyVenture</a></span>
                     </span>
                 </div>
                 <div class="mbr-navbar__hamburger mbr-hamburger text-white"><span class="mbr-hamburger__line"></span></div>
@@ -403,14 +348,14 @@ if(data=="ok"){
                     <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                         <div class="mbr-navbar__column">
                           <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active" id="navigation">
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="investors.php" id="investornav">Investors</a></li> 
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="businesses.php" id="businessnav">Businesses</a></li>
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about.php" id="aboutnav">About</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="investors" id="investornav">Investors</a></li> 
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="businesses" id="businessnav">Businesses</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about" id="aboutnav">About</a></li>
                             <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="https://medium.com/fund-my-venture" target="_blank" id="learn">Learn</a></li>
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="companies.php" id="browsecompanies" style="display:none">Browse Companies</a></li>
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="companypage.php" id="liveexample" style="display:none">Live example</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="companies" id="browsecompanies" style="display:none">Browse Companies</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="companypage" id="liveexample" style="display:none">Live example</a></li>
                             <!--<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#contact" id="contactnav">Contact</a></li>-->
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="start-a-campaign.php" id="getfunded" style="display:none">Get Funded</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="start-a-campaign" id="getfunded" style="display:none">Get Funded</a></li>
                             <li class="mbr-navbar__item" id="dropdownvalues">
                               <script type="text/javascript">
                                 if(localStorage.getItem("username") && Date.now() / 1000 < localStorage.getItem("timeout") && localStorage.getItem("usertype")=="investor"){
@@ -418,27 +363,22 @@ if(data=="ok"){
                                    document.getElementById("aboutnav").style.display="none";
                                    document.getElementById("investornav").style.display="none";
                                    document.getElementById("businessnav").style.display="none";
-                                  
-                                  document.getElementById("dropdownvalues").innerHTML='<div class="dropdown"> <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">My Profile <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="investor_profile.php">Profile</a></li>  <li><a onclick="logout()">Logout</a></li> </ul> </div>';
+                                                                  document.getElementById("dropdownvalues").innerHTML='<div class="dropdown"> <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">My Profile <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="investor_profile">Profile</a></li>  <li><a onclick="logout()">Logout</a></li> </ul> </div>';
                                 }
                                 else if(localStorage.getItem("username") && Date.now() / 1000 < localStorage.getItem("timeout") && localStorage.getItem("usertype")=="startup"){
                                    document.getElementById("liveexample").style.display="block";
                                    document.getElementById("aboutnav").style.display="none";
                                    document.getElementById("investornav").style.display="none";
                                    document.getElementById("businessnav").style.display="none";
-                              
-                                  document.getElementById("dropdownvalues").innerHTML='<div class="dropdown"> <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">My Profile <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="venture_profile.php">Profile</a></li> <li><a onclick="logout()">Logout</a></li> </ul> </div>';
+                                                              document.getElementById("dropdownvalues").innerHTML='<div class="dropdown"> <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">My Profile <span class="caret"></span></button> <ul class="dropdown-menu"> <li><a href="venture_profile">Profile</a></li> <li><a onclick="logout()">Logout</a></li> </ul> </div>';
                                 }
                                 else document.getElementById("dropdownvalues").innerHTML='<div class="mbr-buttons  mbr-buttons--left"><center><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-warning" data-toggle="modal" href="#loginmodal">Login/Signup</a></center>';
                               </script>
-                              
-
-      
-                            </li>
+                            
+                                </li>
 
                           </ul></div>
-                
-                    </nav>
+                                  </nav>
                 </div>
             </div>
         </div>

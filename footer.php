@@ -24,8 +24,8 @@ Phone - (+91) 7829369467<!--080-95994233--></p><br><br>
                     </div>
                     <div class="col-sm-6"><p class="mbr-contacts__text"><strong>Join us</strong></p><ul class="mbr-contacts__list">
                         <a href="https://medium.com/fund-my-venture" target="_blank"><li>Learn</li></a>
-                        <a href="glossary.php"><li>Glossary</li></a>
-                        <a href="faq.php"><li>Frequently Asked Questions</li></a>
+                        <a href="glossary"><li>Glossary</li></a>
+                        <a href="faq"><li>Frequently Asked Questions</li></a>
                         <a href="https://angel.co/fundmyventure/jobs/" target="_blank"><li>Join us</li></a>
                         <a href="https://medium.com/fund-my-venture" target="_blank"><li>Blog</li></a>
                     </ul></div>

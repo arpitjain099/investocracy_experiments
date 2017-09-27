@@ -1,18 +1,12 @@
-# Turn on URL rewriting
 RewriteEngine On
 
-# Installation directory
-RewriteBase /
-
-# Protect hidden files from being viewed
-<Files .*>
-    Order Deny,Allow
-    Deny From All
-</Files>
-
-# Allow any files or directories that exist to be displayed directly
-RewriteCond %{REQUEST_FILENAME} !-f
+# Unless directory, remove trailing slash
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !favicon.ico$
+RewriteRule ^([^/]+)/$ http://example.com/folder/$1 [R=301,L]
 
-RewriteRule .* tp.php/$0 [PT]
+# Redirect external .php requests to extensionless url
+# RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
+# RewriteRule ^(.+)\.php$ http://example.com/folder/$1 [R=301,L]
+
+# Resolve .php file for extensionless php urls
+RewriteRule ^([^/.]+)$ $1.php [L]

@@ -25,9 +25,9 @@
     
     <div class="container">
         <h1 style="color:rgb(0,177,240);"><center>You are a</center></h1>
-        <a href="investor_signup.php"><div class="col-lg-6"><center><img width="50%"src="http://www.investormarketinglists.com/wp-content/uploads/2011/05/62000.gif"/><br></center></div></a>
+        <a href="investor_signup"><div class="col-lg-6"><center><img width="50%"src="http://www.investormarketinglists.com/wp-content/uploads/2011/05/62000.gif"/><br></center></div></a>
     
-        <a href="venture_signup.php"><div class="col-lg-6"><center><img src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2012/12/venture-logo.jpg"/></center></div></a>
+        <a href="venture_signup"><div class="col-lg-6"><center><img src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2012/12/venture-logo.jpg"/></center></div></a>
     </div>
 </section>
 <?php require('footer.php'); ?>

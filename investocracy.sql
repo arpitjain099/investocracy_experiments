@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 25, 2017 at 07:11 AM
+-- Generation Time: Sep 27, 2017 at 02:38 AM
 -- Server version: 5.7.18
 -- PHP Version: 7.1.7
 
@@ -12,7 +12,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-USE investocracy;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -23,7 +23,7 @@ USE investocracy;
 --
 
 -- --------------------------------------------------------
-
+use investocracy;
 --
 -- Table structure for table `bookmarkforlater`
 --
@@ -98,8 +98,20 @@ CREATE TABLE `users_fmv` (
   `twitter` text,
   `typicalinvestmentamount` text,
   `portofolio` text,
-  `image_url` text
+  `image_url` text,
+  `userid` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_fmv`
+--
+
+INSERT INTO `users_fmv` (`name`, `password`, `entity`, `email`, `linkedin`, `phone`, `headline`, `location`, `preferences`, `pastinvestments`, `industry_preferences`, `countryofresidence`, `currentorganization`, `designation`, `pending`, `investor_type`, `twitter`, `typicalinvestmentamount`, `portofolio`, `image_url`, `userid`) VALUES
+('root', '12345678', '', 'xaxa@ga.co', 'Not Available', '', 'Angel Investor', 'Not Available', 'yes', 'no', 'Aerospace,', 'India', 'Not Available', 'Not Available', 'pending', 'Angel', 'Not Available', 'Not Available', 'Not Available', 'http://fundmyventure.co/assets/images/investor_profile.png', ''),
+('root', '12345678', '', 'ss@ga.co', 'Not Available', '', 'Angel Investor', 'Not Available', 'yes', 'no', 'Aerospace,', 'India', 'Not Available', 'Not Available', 'pending', 'Angel', 'Not Available', 'Not Available', 'Not Available', 'http://fundmyventure.co/assets/images/investor_profile.png', '1506410966'),
+('', '', '', '', 'Not Available', '', 'Angel Investor', 'Not Available', 'yes', 'no', '', 'India', 'Not Available', 'Not Available', 'pending', 'Angel', 'Not Available', 'Not Available', 'Not Available', 'http://fundmyventure.co/assets/images/investor_profile.png', '1506494827'),
+('root', '12345678', '', 'aaa@gm.ccxa', 'Not Available', 'xa', 'Angel Investor', 'Not Available', 'yes', 'no', '[\"Enterprise Storage\",\"Enterprise Networking\",\"IT Operations\"]', 'India', 'Not Available', 'Not Available', 'pending', 'Angel', 'Not Available', 'Not Available', 'Not Available', 'http://fundmyventure.co/assets/images/investor_profile.png', '1506494866'),
+('root', '12345678', '', 'xaxaxaagva@Gaa.cxa', 'Not Available', 'xaxa', 'Angel Investor', 'Not Available', 'yes', 'no', '[\"Enterprise Storage\",\"Enterprise Networking\",\"IT Operations\"]', 'India', 'Not Available', 'Not Available', 'pending', 'Angel', 'Not Available', 'Not Available', 'Not Available', 'http://fundmyventure.co/assets/images/investor_profile.png', '1506494898');
 
 -- --------------------------------------------------------
 

@@ -431,7 +431,7 @@ jQuery(document).ready(function ($) {
 <center>
 <div class="nav pull-right scroll-top" id="a">
   <span class="glyphicon glyphicon-heart"></span>
-  Have a startup? <a href="venture_signup.php">Signup for free</a> to begin fundraise for your business. 
+  Have a startup? <a href="venture_signup">Signup for free</a> to begin fundraise for your business. 
         &nbsp&nbsp&nbsp<input id="button" type="button" onclick="f()" value="X">
  
 </div>

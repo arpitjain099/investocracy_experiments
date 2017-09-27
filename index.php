@@ -20,7 +20,7 @@
                                     <h1 class="mbr-hero__text">SUPPORT STARTUPS YOU BELIEVE IN!</h1>
                                     <p class="mbr-hero__subtext">Angel Investments Made Easy. For Everyone.</p>
                                 </div>
-                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-warning" href="http://fundmyventure.co/investor_signup.php" target="_blank">View active deals!</a></div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-warning" href="http://fundmyventure.co/investor_signup" target="_blank">View active deals!</a></div>
 
                             </div></div>
                         </div>
@@ -34,7 +34,7 @@
                                     <h1 class="mbr-hero__text">Easy Fund Raising!</h1>
                                     <p class="mbr-hero__subtext">We are democratising the way startups raise money.</p>
                                 </div>
-                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-warning" href="http://fundmyventure.co/venture_signup.php" target="_blank">Register your startup!</a></div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg btn-warning" href="http://fundmyventure.co/venture_signup" target="_blank">Register your startup!</a></div>
 
                             </div></div>
                         </div>
@@ -126,7 +126,7 @@
                     <div class="caption">
                         <div>
                             <h3>Join FundMyVenture as investor!</h3>
-                            <p><a href="investor_signup.php">Signup</a> as an investor on FundMyVenture (currently in public beta). No spamming at all, promise!</p>
+                            <p><a href="investor_signup">Signup</a> as an investor on FundMyVenture (currently in public beta). No spamming at all, promise!</p>
                         </div>
                         
                     </div>
@@ -185,7 +185,7 @@
                     <div class="caption">
                         <div>
                             <h3>Join FundMyVenture!</h3>
-                            <p><a href="venture_signup.php">Signup</a> as an entrepreneur and we will take care of the rest. Register your startup for an efficient fundraise! </p>
+                            <p><a href="venture_signup">Signup</a> as an entrepreneur and we will take care of the rest. Register your startup for an efficient fundraise! </p>
                         </div>
                        </div>
                 </div>

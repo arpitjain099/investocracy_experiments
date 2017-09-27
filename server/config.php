@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$link = mysqli_connect("127.0.0.1", "root", "12345678", "investocracy");
+$link = mysqli_connect("localhost", "root", "12345678", "investocracy");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

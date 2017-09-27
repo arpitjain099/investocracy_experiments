@@ -318,7 +318,7 @@ function f(){
 <center>
 <div class="nav pull-right scroll-top" id="a">
   <span class="glyphicon glyphicon-heart"></span>
-   <a href="investor_signup.php">Signup for free</a> to view the best deals available.
+   <a href="investor_signup">Signup for free</a> to view the best deals available.
         &nbsp&nbsp&nbsp<input id="button" type="button" onclick="f()" value="X">
  
 </div>

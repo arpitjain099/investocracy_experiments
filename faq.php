@@ -62,9 +62,9 @@ We are here to bring easy investment opportunities to everyone through the use o
         </div>
         <div id="1_2" class="panel-collapse collapse">
             <div class="panel-body">
-                If you want to invest money, you can start <a href="investors.php">here</a>.
+                If you want to invest money, you can start <a href="investors">here</a>.
 
-If you are looking for debt or equity for your business, you can start by completing an application <a href="businesses.php">here</a>. </div>
+If you are looking for debt or equity for your business, you can start by completing an application <a href="businesses">here</a>. </div>
         </div>
     </div>
     
@@ -79,7 +79,7 @@ If you are looking for debt or equity for your business, you can start by comple
         </div>
         <div id="1_3" class="panel-collapse collapse">
             <div class="panel-body">
-                FundMyVenture.co is a team of professionals, with experience in private equity, technology and finance. You can learn more about us <a href="about.php">here</a>.<br><br>
+                FundMyVenture.co is a team of professionals, with experience in private equity, technology and finance. You can learn more about us <a href="about">here</a>.<br><br>
 
     Currently, FundMyVenture is being run by Arpit Jain. Arpit is responsible for the company’s direction and operations. Arpit has previously worked on Computer Science research with Xerox Research Labs, India and has internship experience with Yahoo, and Zomato. He also has been on internships to IRIT (France), Indian Institute of Management Bangalore (IIMB) and Indian Institute of Management Calcutta (IIMC). Arpit possesses a bachelors and masters degree in Computer Science & Engineering from IIT Kanpur, India. Arpit holds 2 patent applications and 2 publications so far and was among the founding team of Entrepreneurship Cell at IIT Kanpur.<br><br>
 

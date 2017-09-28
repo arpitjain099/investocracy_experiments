@@ -1,8 +1,4 @@
 <?php require('header.php'); ?>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header1-73">
     <div class=" mbr-box__magnet--sm-padding mbr-box__magnet--center-left">
 
@@ -11,8 +7,6 @@
   
 
   
-
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
 
 
   
@@ -63,11 +57,12 @@ $(function(){
 
 </script>
 <div class="container">  <div class="row">
-
   <div class="flowers-wrap">
-             <div class="col-xs-18 col-sm-6 col-md-3">
+            <div class="col-md-3">
                 Filters
-               
+
+
+
                 <div class="panel-group">
     
     <div class="panel panel-default">
@@ -275,9 +270,9 @@ $(function(){
     </div>
     </div>
   </div>
-			<div class="col-xs-18 col-sm-6 col-md-9">
+	<div class="col-md-9">
 			 <div class="flowers">
-        <div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="advertising ncr seed">
+        <div class="col-md-4 flower" data-id="aloe" data-category="advertising ncr seed">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">
@@ -287,7 +282,7 @@ $(function(){
             </div>
           </div>
         </div>
-        <div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="bangalore seriesa tiny cleantech">
+        <div class="col-md-4 flower" data-id="aloe" data-category="bangalore seriesa tiny cleantech">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">
@@ -298,7 +293,7 @@ $(function(){
           </div>
         </div>
 
-        <div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="large seriesb finance">
+        <div class="col-md-4 flower" data-id="aloe" data-category="large seriesb finance">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">
@@ -309,7 +304,7 @@ $(function(){
           </div>
         </div>
 
-         <div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="giant seriesc realestate ">
+         <div class="col-md-4 flower" data-id="aloe" data-category="giant seriesc realestate ">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">
@@ -320,7 +315,7 @@ $(function(){
           </div>
         </div>
 		
-		<div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="giant seriesc realestate ">
+		<div class="col-md-4 flower" data-id="aloe" data-category="giant seriesc realestate ">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">
@@ -331,7 +326,7 @@ $(function(){
           </div>
         </div>
 		
-		<div class="col-xs-18 col-sm-6 col-md-3 flower" data-id="aloe" data-category="giant seriesc realestate ">
+		<div class="col-md-4 flower" data-id="aloe" data-category="giant seriesc realestate ">
           <div class="thumbnail">
             <img src="http://placehold.it/500x250/EEE">
               <div class="caption">

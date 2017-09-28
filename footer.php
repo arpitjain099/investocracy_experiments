@@ -82,9 +82,6 @@ Phone - (+91) 7829369467<!--080-95994233--></p><br><br>
     }).start();
   </script>
 
-
-  <script src="assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
   <script src="assets/smooth-scroll/SmoothScroll.js"></script>
   <script src="assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js"></script>

@@ -383,11 +383,8 @@ div.thumbnail .glyphicon-ok-circle{
 
 </style>
 
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
 <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background mbr-after-navbar" id="header1-73" >
     <div class=" mbr-box__magnet--sm-padding mbr-box__magnet--center-left">

@@ -1,15 +1,13 @@
 
 <?php require('header.php'); ?>
 <script src="samplejson.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $.post("server/generateprofile.php", { 
     username:localStorage.getItem("username")
 })
 .done(function( data ) {
     data=JSON.parse(data);
-
-  data=data[0];
+    data=data[0];
 
     document.getElementById("profile_img_url").src=data.image_url;
     document.getElementById("name").innerHTML="<center>".concat(data.name).concat("</center>");
@@ -75,10 +73,7 @@ if(data.length==0)
                 <p id="headline"></p>
                 <p id="shortlocation"></p>
             </div>
-        
-       
-        </div>
-      
+        </div>      
     </div>
 </section>
 

@@ -1,9 +1,5 @@
 <?php header( 'Access-Control-Allow-Origin: *'); ?>
 <?php require( 'header.php'); ?>
-<script src="assets/jquery.min.js"></script>
-<!-- Bootstrap -->
-
-
 <link href="assets/vendor.css" rel="stylesheet">
 <link href="semantic.css" rel="stylesheet">
 <script src="semantic.js"></script>

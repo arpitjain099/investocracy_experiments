@@ -160,11 +160,11 @@
     </section>
     <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="parent" style="padding-bottom: 50px; position:relative">
         <div class="mbr-box__magnet mbr-box__magnet--md-padding mbr-box__magnet--center-left">
-            <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(41, 105, 176);"></div>
+            <div class="mbr-overlay" style="opacity: 0.5; background-color: white;"></div><!-- background-color: rgb(41, 105, 176); -->
             <div class="mbr-box__container mbr-section__container container">
                 <div class=" col-md-12" style="padding-top: 50px;">
                     <div class="col-md-3">
-                        <ul class="nav nav-tabs" id="child" style="width: min-content;">
+                        <ul class="nav" id="child" style="width: min-content;">
                             <li class="companyscrollelement">
                                 <a href="#team">Team</a>
                             </li>
@@ -576,6 +576,15 @@
             });
     });
 
+    // for use to roll function
+    var aChildren = $("#child li").children(); // find the a children of the list items
+        var aArray = []; // create the empty aArray
+        for (var i=0; i < aChildren.length; i++) {    
+            var aChild = aChildren[i];
+            var ahref = $(aChild).attr('href');
+            aArray.push(ahref);
+        } // this for loop fills the aArray with attribute href values
+
     function roll() {
         console.log($('#child').offset().top - $(window).scrollTop())
         if (($('#child').offset().top - $(window).scrollTop()) < 100 && $('#parent').visible()) {
@@ -589,6 +598,29 @@
                 position: 'relative'
             });
         }
+
+            var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+            var windowHeight = $(window).height(); // get the height of the window
+            var docHeight = $(document).height();
+            $("a[href='" + aArray[0] + "']").addClass("nav-active");
+            for (var i=0; i < aArray.length; i++) {
+                var theID = aArray[i];
+                var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+                var divHeight = $(theID).height(); // get the height of the div in question
+                if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                    $("a[href='" + theID + "']").addClass("nav-active");
+                } else {
+                    $("a[href='" + theID + "']").removeClass("nav-active");
+                }
+            }
+            
+            if(windowPos + windowHeight == docHeight) {
+                if (!$("nav li:last-child a").hasClass("nav-active")) {
+                    var navActiveCurrent = $(".nav-active").attr("href");
+                    $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+                    $("nav li:last-child a").addClass("nav-active");
+                }
+            }
     }
 
     </script> 

@@ -128,7 +128,6 @@
                                         <p class="m-b-24" style="min-height:60px;">
                                             Create a startup profile to privately share data with potential investors
                                         </p>
-
                                     </a>
                                 </div>
                             </center>
@@ -306,7 +305,7 @@
     <body>
 
         <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--relative mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-20">
-            <div class="mbr-navbar__section mbr-section">
+            <div class="mbr-navbar__section mbr-section" id="headerid">
                 <div class="mbr-section__container container">
                     <div class="mbr-navbar__container">
                         <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">

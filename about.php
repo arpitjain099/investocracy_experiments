@@ -18,7 +18,7 @@
       
     </div>
 </section>
--->
+--> 
   <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <section class="content-2 col-4" style="background-color: rgb(255, 255, 255);">
